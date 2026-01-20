@@ -5,4 +5,8 @@ class Document < ApplicationRecord
   validates :expires_at, presence: true
 
   scope :expired, -> { where("expires_at < ?", Time.current) }
+
+  def to_param
+    uuid
+  end
 end

@@ -6,7 +6,6 @@ class DocumentsController < ApplicationController
     )
 
     document.file.attach(params.require(:file))
-    raise "Invalid file" unless document.file.content_type == "application/pdf"
 
     render json: {
       id: document.uuid,
